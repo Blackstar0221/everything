@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Wordle</title>
+  <link rel="stylesheet" href="wordle.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Wordle</h1>
+      <p class="subtitle">Daily 5-letter puzzle</p>
+    </header>
+
+    <section class="stats">
+      <div class="stat-box">
+        <span id="gamesPlayed">0</span>
+        <small>Played</small>
+      </div>
+      <div class="stat-box">
+        <span id="gamesWon">0</span>
+        <small>Won</small>
+      </div>
+      <div class="stat-box">
+        <span id="winPercent">0%</span>
+        <small>Win %</small>
+      </div>
+    </section>
+
+    <div id="message" class="message"></div>
+
+    <section id="board" class="board"></section>
+
+    <section id="keyboard" class="keyboard">
+      <div class="keyboard-row" id="row1"></div>
+      <div class="keyboard-row" id="row2"></div>
+      <div class="keyboard-row" id="row3"></div>
+    </section>
+  </div>
+
+  <script src="answers.js"></script>
+  <script src="validWords.js"></script>
+  <script src="wordle.js"></script>
+</body>
+</html>
