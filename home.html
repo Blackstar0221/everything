@@ -46,7 +46,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://syfdswxebgbennfeeqis.supabase.co";
-    const SUPABASE_ANON_KEY = "YOUR_PUBLISHABLE_KEY_HERE";
+    const SUPABASE_ANON_KEY = "sb_publishable_Xd6eltADYlYgU58ZnVIR7Q_khTU-y34";
 
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -60,7 +60,7 @@
         return;
       }
 
-      const username = user.user_metadata?.username || "User";
+      const username = user.user_metadata?.username || user.email || "User";
       document.getElementById("welcomeText").textContent = `Welcome, ${username}!`;
     }
 
