@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="home-page">
+    <header class="home-header">
+      <h1>My Website</h1>
+      <button id="logoutBtn" class="logout-btn">Log Out</button>
+    </header>
+
+    <main class="home-main">
+      <section class="welcome-box">
+        <h2 id="welcomeText">Welcome!</h2>
+        <p>You logged in successfully 🎉</p>
+      </section>
+
+      <section class="home-grid">
+        <div class="home-card">
+          <h3>Profile</h3>
+          <p>View your account info here.</p>
+        </div>
+
+        <div class="home-card">
+          <h3>Projects</h3>
+          <p>See your saved work and updates.</p>
+        </div>
+
+        <div class="home-card">
+          <h3>Settings</h3>
+          <p>Change your preferences here.</p>
+        </div>
+
+        <div class="home-card">
+          <h3>About</h3>
+          <p>Learn more about this website.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://syfdswxebgbennfeeqis.supabase.co";
+    const SUPABASE_ANON_KEY = "YOUR_PUBLISHABLE_KEY_HERE";
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function loadUser() {
+      const {
+        data: { user }
+      } = await supabaseClient.auth.getUser();
+
+      if (!user) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      const username = user.user_metadata?.username || "User";
+      document.getElementById("welcomeText").textContent = `Welcome, ${username}!`;
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await supabaseClient.auth.signOut();
+      window.location.href = "index.html";
+    });
+
+    loadUser();
+  </script>
+</body>
+</html>
