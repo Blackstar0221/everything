@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #121213;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: #aaaaaa;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  background: #1f1f22;
+  padding: 12px 18px;
+  border-radius: 10px;
+  min-width: 90px;
+}
+
+.stat-box span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.stat-box small {
+  color: #bdbdbd;
+}
+
+.message {
+  min-height: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #ffd166;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 8px;
+  margin: 0 auto 25px;
+  width: fit-content;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.tile {
+  width: 58px;
+  height: 58px;
+  border: 2px solid #3a3a3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #121213;
+  transition: 0.2s ease;
+}
+
+.tile.filled {
+  border-color: #565758;
+}
+
+.tile.correct {
+  background: #538d4e;
+  border-color: #538d4e;
+}
+
+.tile.present {
+  background: #b59f3b;
+  border-color: #b59f3b;
+}
+
+.tile.absent {
+  background: #3a3a3c;
+  border-color: #3a3a3c;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 6px;
+}
+
+.key {
+  background: #818384;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 10px;
+  min-width: 38px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.key:hover {
+  opacity: 0.9;
+}
+
+.key.large {
+  min-width: 70px;
+  font-size: 0.9rem;
+}
+
+.key.correct {
+  background: #538d4e;
+}
+
+.key.present {
+  background: #b59f3b;
+}
+
+.key.absent {
+  background: #3a3a3c;
+}
+
+@media (max-width: 500px) {
+  .tile {
+    width: 46px;
+    height: 46px;
+    font-size: 1.5rem;
+  }
+
+  .key {
+    min-width: 30px;
+    padding: 12px 8px;
+    font-size: 0.82rem;
+  }
+
+  .key.large {
+    min-width: 56px;
+  }
+}
